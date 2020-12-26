@@ -249,7 +249,7 @@ export default class FTPFileSystem extends RemoteFileSystem {
   ): Promise<FileEntry[]> {
     // -al flag only get partially support
     const stats = await this.atomicList(dir);
-
+    
     return (
       stats
         // item will be a string if ftp fail to parse it (https://github.com/liximomo/vscode-sftp/issues/308)
@@ -310,10 +310,17 @@ export default class FTPFileSystem extends RemoteFileSystem {
           if (err) {
             return reject(err);
           }
-
           resolve(stream);
-        });
-      });
+
+          stream.on('data',function(buffer){
+            setTimeout(function(){
+              stream.destroy()
+            }, 500)
+          })
+          
+        }
+      );
+  });
 
     return this.queue.add(task);
   }
