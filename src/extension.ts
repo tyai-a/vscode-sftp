@@ -18,7 +18,7 @@ async function setupWorkspaceFolder(dir) {
   });
 }
 
-function setup(workspaceFolders: vscode.WorkspaceFolder[]) {
+function setup(workspaceFolders) {
   fileActivityMonitor.init();
   const pendingInits = workspaceFolders.map(folder => setupWorkspaceFolder(folder.uri.fsPath));
 

@@ -82,7 +82,7 @@ export default class RemoteTreeData
       this._roots = null;
       this._rootsMap = null;
 
-      this._onDidChangeFolder.fire();
+      // this._onDidChangeFolder.fire();
       return;
     }
 
