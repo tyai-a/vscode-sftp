@@ -542,7 +542,7 @@
     "rimraf": "^2.6.2",
     "ts-loader": "^5.3.0",
     "tslint": "^5.11.0",
-    "typescript": "3.1.6",
+    "typescript": "^3.1.6",
     "typescript-tslint-plugin": "^0.0.6",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
