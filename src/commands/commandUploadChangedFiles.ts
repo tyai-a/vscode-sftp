@@ -46,12 +46,12 @@ async function handleCommand(hint: any) {
   if (!hint) {
     repository = await getRepository(git);
   } else if (isSourceControlResourceGroup(hint)) {
-    repository = git.repositories.find(repo => repo.ui.selected);
+    repository = git.repositories.find(repo => repo.state.workingTreeChanges);
     filterGroupId = hint.id;
   } else if (isRepository(hint)) {
-    repository = git.repositories.find(repo => repo.ui.selected);
+    repository = git.repositories.find(repo => repo.state.workingTreeChanges);
   }
-
+  
   if (!repository) {
     return;
   }
